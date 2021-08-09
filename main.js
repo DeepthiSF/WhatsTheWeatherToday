@@ -15,7 +15,8 @@ btn.addEventListener('click', function (event) {
     }
 
     if (location != "") {
-        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&appid=' + apiKey)
+        // Used the OpenWeathermap for API - https://openweathermap.org/current
+        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
