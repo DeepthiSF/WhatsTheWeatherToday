@@ -7,15 +7,15 @@ btn.addEventListener('click', function (event) {
     event.preventDefault();
     //alert('addEventListner is working') // just a check
     var location = document.getElementById('location').value;
-    // if(!isNaN(location)){
-    //     q = "zip";
-    //     //console.log("this is a zipcode");
-    // } else {
-    //     q = "city"
-    // }
+    if(!isNaN(location)){
+        locationkey = "zip";
+        //console.log("this is a zipcode");
+    } else {
+        locationkey = "q"
+    }
 
     if (location != "") {
-        fetch('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + apiKey)
+        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
@@ -25,10 +25,14 @@ btn.addEventListener('click', function (event) {
             .then(function (result) {
                 jsonFile = result;
                 console.log(jsonFile);
+                return jsonFile;
             })
             .then((data)=> {
-                return displayOutput(data)
+                var resultObj = data;
+                return displayOutput(resultObj);
+                
             })
+            
             
     }
 
@@ -40,10 +44,17 @@ btn.addEventListener('click', function (event) {
 //             console.error(err);
 //         });
 
+function displayOutput(resultObj){
 
+    let locationname = document.getElementById("locationName");
+    let hightemp = document.getElementById("highTemp");
+    let lowtemp = document.getElementById("lowTemp");
+
+    locationname.innerText = resultObj.name;
+    hightemp.innerText = resultObj.main.temp_max;
+    lowtemp.innerText = resultObj.main.temp_min;
+}
 });
 
-function displayOutput(data){
 
-}
 
