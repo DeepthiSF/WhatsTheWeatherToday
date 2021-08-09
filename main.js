@@ -3,7 +3,8 @@
 var btn = document.getElementById('Form');
 var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
 
-btn.addEventListener('click', function () {
+btn.addEventListener('click', function (event) {
+    event.preventDefault();
     //alert('addEventListner is working') // just a check
     var location = document.getElementById('location').value;
     // if(!isNaN(location)){
@@ -14,7 +15,7 @@ btn.addEventListener('click', function () {
     // }
 
     if (location != "") {
-        fetch('api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + apiKey)
+        fetch('http://api.openweathermap.org/data/2.5/weather?q=' + location + '&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
@@ -25,31 +26,24 @@ btn.addEventListener('click', function () {
                 jsonFile = result;
                 console.log(jsonFile);
             })
+            .then((data)=> {
+                return displayOutput(data)
+            })
+            
     }
 
-
-
-
-
-
-
-
-
-//     fetch("https://dark-sky.p.rapidapi.com/%7Blatitude%7D,%7Blongitude%7D?lang=en&units=auto", {
-// 	"method": "GET",
-// 	"headers": {
-// 		"x-rapidapi-key": "70fdfa338dmsh78263e645b22582p190398jsn05f91265c237",
-// 		"x-rapidapi-host": "dark-sky.p.rapidapi.com"
-// 	}
-// })
  
-  .then(response => {
-        console.log(response);
-    })
-        .catch(err => {
-            console.error(err);
-        });
+//   .then(response => {
+//         console.log(response);
+//     })
+//         .catch(err => {
+//             console.error(err);
+//         });
 
 
 });
+
+function displayOutput(data){
+
+}
 
