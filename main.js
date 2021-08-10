@@ -48,12 +48,22 @@ btn.addEventListener('click', function (event) {
 function displayOutput(resultObj){
 
     let locationname = document.getElementById("locationName");
+    let currenttemp = document.getElementById("currentTemp");
     let hightemp = document.getElementById("highTemp");
     let lowtemp = document.getElementById("lowTemp");
-
-    locationname.innerText = resultObj.name;
+    let windspeed = document.getElementById("windspeed");
+    let description = document.getElementById("description");
+    let humidity = document.getElementById("humidity");
+    let country = document.getElementById("countryName")
+    
+    locationname.innerText =resultObj.name;
     hightemp.innerText = resultObj.main.temp_max;
     lowtemp.innerText = resultObj.main.temp_min;
+    currenttemp.innerText = resultObj.main.temp;
+    windspeed.innerText = resultObj.wind.speed +' mph';
+    description.innerText = resultObj.weather[0].description;
+    humidity.innerText = resultObj.main.humidity;
+    country.innerText = resultObj.sys.country;
 }
 });
 
