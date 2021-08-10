@@ -3,32 +3,21 @@
 <html lang="en">
     <script defer src="main.js" type="text/javascript"></script>
     <script defer src="CToF.js" type="text/javascript"></script>
+    <link rel="stylesheet" href="Weather.css">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Whats The Weather?</title>
 </head>
-<style>
-    body {
-    background-color: rgba(16, 84, 104, 0.534);
-    color: rgb(15, 14, 14);
-    font-family: 'Courier New', Courier, monospace;
-    }
-    h1 {
-    background-color: rgb(71, 120, 255);
-    }
-    footer {
-    }
-    </style>
-<body bgcolor="#3393FF">
+
+<body bgcolor="#3393FF" >
     <div>
         <h1>Whats The Weather?</h1>
         <form id="Form">
             <input type="text" id="location" placeholder="Enter a City or Zip code" />
             <input type="submit" value="Search" />
-        </form> 
-        <br>
+        </form>
         
         <!-- <form>
             <input type="radio" name="Temparature" value="f" id="Fah"> 
@@ -37,10 +26,15 @@
             <label for="c">&#8451;</label>
             <button id="tempbtn">Convert</button>
         </form> -->
-
-        <button id="c">Celsius</button>        
-        <br>
-        <button id="f">Fahrenheit</button>
+        <div class="celciusBtn">  
+            <button id="c">Celsius</button> 
+          </div>
+        </br> 
+          
+          <div class="FahBtn">  
+            <button id="f">Fahrenheit</button>
+          </div>
+ 
         
         
         <div id="searchOutputData">                                                  
