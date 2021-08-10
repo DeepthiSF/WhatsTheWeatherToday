@@ -1,9 +1,9 @@
-
 <!DOCTYPE html>
 <html lang="en">
-    <script defer src="main.js" type="text/javascript"></script>
-    <script defer src="CToF.js" type="text/javascript"></script>
-    <link rel="stylesheet" href="Weather.css">
+<script defer src="main.js" type="text/javascript"></script>
+<script defer src="CToF.js" type="text/javascript"></script>
+<link rel="stylesheet" href="Weather.css">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -11,14 +11,14 @@
     <title>Whats The Weather?</title>
 </head>
 
-<body bgcolor="#3393FF" >
+<body bgcolor="#3393FF">
     <div>
         <h1>Whats The Weather?</h1>
         <form id="Form">
             <input type="text" id="location" placeholder="Enter a City or Zip code" />
             <input type="submit" value="Search" />
         </form>
-        
+
         <!-- <form>
             <input type="radio" name="Temparature" value="f" id="Fah"> 
             <label for="f">&#8457;</label>
@@ -26,58 +26,67 @@
             <label for="c">&#8451;</label>
             <button id="tempbtn">Convert</button>
         </form> -->
-        <div class="celciusBtn">  
-            <button id="c">Celsius</button> 
-          </div>
-        </br> 
-          
-          <div class="FahBtn">  
+        <div class="celciusBtn">
+            <button id="c">Celsius</button>
+        </div>
+        </br>
+
+        <div class="FahBtn">
             <button id="f">Fahrenheit</button>
-          </div>
- 
-        
-        
-        <div id="searchOutputData">                                                  
-            <h1 id="weather" >Weather in this place</h1>
+        </div>
+
+        <div class="Navagation">
+            <ul>
+                <li><a href="#">
+                        <span class="icon"></span>
+                        <span class="title">Atlanta Hub</span>
+                    </a>
+                </li>
+
+                <li><a href="#">
+                        <span class="icon"></span>
+                        <span class="title">Dallas Hub</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+
+        <div id="searchOutputData">
+            <h1 id="weather">Weather in this place</h1>
             <p class="">
                 <strong>Country:</strong>
                 <span id="countryName">Unknown</span>
-                </p>
+            </p>
             <p class="">
-            <strong>Location Name:</strong>
-            <span id="locationName">Unknown</span>
+                <strong>Location Name:</strong>
+                <span id="locationName">Unknown</span>
             </p>
             <p class="">
                 <strong>Current Temperature:</strong>
                 <span id="curTemp">Unknown</span>
-                </p>
-            <p class="">
-            <strong>High Temperature:</strong>
-            <span id="highTemp">Unknown</span>
             </p>
             <p class="">
-            <strong>Low Temparature:</strong>
-            <span id="lowTemp">Unknown</span>
-            </p> 
+                <strong>High Temperature:</strong>
+                <span id="highTemp">Unknown</span>
+            </p>
+            <p class="">
+                <strong>Low Temparature:</strong>
+                <span id="lowTemp">Unknown</span>
+            </p>
             <p class="">
                 <strong>Description:</strong>
                 <span id="description">Unknown</span>
-            </p>   
+            </p>
             <p class="">
-                    <strong>Wind Speed:</strong>
-                    <span id="windspeed">Unknown</span>
+                <strong>Wind Speed:</strong>
+                <span id="windspeed">Unknown</span>
             </p>
             <p class="">
                 <strong>Humidity:</strong>
                 <span id="humidity">Unknown</span>
-            </p>               
+            </p>
         </div>
-    
+
 </body>
 
 </html>
-
-
-
-
-
