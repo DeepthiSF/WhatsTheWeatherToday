@@ -4,3 +4,34 @@ body {
     background-image: url("State Farm Atlanta.jpg");
     font-family: 'Courier New', Courier, monospace;
     }
+
+    .heading {
+        background-color:royalblue;
+        color:seashell;
+        width: 600px
+    }
+    
+    #weather {
+        background-color: royalblue;
+        color:seashell;
+    }
+    
+    .box {
+        position:relative;
+        width: calc(400px - 20px);
+        height: calc(300px - 10px);
+        background:rgba(216, 199, 102, 0.925);
+        box-sizing: border-box;
+        margin: 20px;
+        transition: width 1.5s;
+        z-index: 1;
+        color:royalblue;
+    }
+    
+    #activities {
+        background-color: salmon;
+        color: seashell;
+        font-weight: 900;
+        font-size: 50px;
+        width: 500px
+    }
