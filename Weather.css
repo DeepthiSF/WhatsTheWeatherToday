@@ -34,13 +34,40 @@ body {
     
     .FahBtn { 
             
-        height: 50px;  
+        height: 30px;  
         display: grid;
         text-align: center; 
         justify-content: center;  
         align-items: center;   
+      
     }  
     
 
     footer {
+    }
+
+
+    .container1 {
+
+        box-sizing: border-box;
+        width: 100%;
+
+
+    }
+
+    .box {
+        position:relative;
+        width: calc(300px - 20px);
+        height: calc(300px - 10px);
+        background:rgba(192, 189, 153, 0.747);
+        box-sizing: border-box;
+        margin: 20px;
+        transition: width 1.5s;
+        z-index: 1;
+
+    }
+
+    
+    .box:hover {
+        width: 300px;
     }
