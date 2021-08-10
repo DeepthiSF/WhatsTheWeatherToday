@@ -4,6 +4,10 @@ var locationname = document.getElementById("locationName");
 var hightemp = document.getElementById("highTemp");
 var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
+var countryname = document.getElementById("countryName");
+var description = document.getElementById("description");
+var windspeed = document.getElementById("windspeed");
+var humidity = document.getElementById("humidity");
 
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
@@ -46,6 +50,10 @@ function displayOutput(resultObj) {
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
     lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
     currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
+    countryname.innerText = resultObj.sys.country;
+    description.innerText = resultObj.weather[0].description;
+    windspeed.innerText = resultObj.wind.speed + 'mph';
+    humidity.innerText = resultObj.main.humidity;
 }
 
 function tempToFah(location) {
