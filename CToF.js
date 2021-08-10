@@ -43,12 +43,12 @@ function displayOutput(resultObj) {
     // let lowtemp = document.getElementById("lowTemp");
 
     locationname.innerText = resultObj.name;
-    hightemp.innerText = resultObj.main.temp_max;
-    lowtemp.innerText = resultObj.main.temp_min;
-    currenttemp.innerText = resultObj.main.temp;
+    hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
+    lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
+    currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
 }
 
-function FahToCel(location) {
+function tempToFah(location) {
 
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
@@ -60,7 +60,7 @@ function FahToCel(location) {
 
     if (location != "") {
 
-        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
+        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
@@ -74,20 +74,20 @@ function FahToCel(location) {
             })
             .then((data) => {
                 var resultObj1 = data;
-                var max_temp = resultObj.main.temp_max;
-                var min_temp = resultObj.main.temp_max;
-                var current_temp = resultObj.main.temp;
+                var max_temp = resultObj1.main.temp_max;
+                var min_temp = resultObj1.main.temp_max;
+                var current_temp = resultObj1.main.temp;
 
-                hightemp.innerText = Math.round(max_temp * 9 / 5) + 32;
-                lowtemp.innerText = Math.round(min_temp * 9 / 5) + 32;
-                currenttemp.innerText = Math.round(current_temp * 9 / 5) + 32;
+                hightemp.innerText = Math.round(((max_temp - 273.15) * 1.8) + 32) + '℉';
+                lowtemp.innerText = Math.round(((min_temp - 273.15) * 1.8) + 32) + '℉';
+                currenttemp.innerText = Math.round(((current_temp - 273.15) * 1.8) + 32) + '℉';
             })
     }
 
     
 }
 
-function CelToFah(location) {
+function tempToCel(location) {
 
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
@@ -113,13 +113,13 @@ function CelToFah(location) {
             })
             .then((data) => {
                 var resultObj1 = data;
-                var max_temp = resultObj.main.temp_max;
-                var min_temp = resultObj.main.temp_max;
-                var current_temp = resultObj.main.temp;
+                var max_temp = resultObj1.main.temp_max;
+                var min_temp = resultObj1.main.temp_max;
+                var current_temp = resultObj1.main.temp;
 
-                hightemp.innerText = Math.round(max_temp - 32) * 5 / 9;
-                lowtemp.innerText = Math.round(min_temp - 32) * 5 / 9;
-                currenttemp.innerText = Math.round(current_temp - 32) * 5 / 9;
+                hightemp.innerText = Math.round((max_temp - 32) * 5 / 9) + '℃';
+                lowtemp.innerText = Math.round((min_temp - 32) * 5 / 9) + '℃';
+                currenttemp.innerText = Math.round((current_temp - 32) * 5 / 9) + '℃';
             })
     }
 

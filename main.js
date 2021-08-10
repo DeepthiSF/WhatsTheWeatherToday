@@ -105,7 +105,7 @@ document.getElementById("f").addEventListener("click", function(event){
     event.preventDefault();
 
     var location = document.getElementById('location').value;
-    return CelToFah(location);
+    return tempToFah(location);
 
     // hightemp.innerText = Math.round(max_temp - 32) * 5 / 9;
     // lowtemp.innerText = Math.round(min_temp - 32) * 5 / 9;
@@ -116,7 +116,7 @@ document.getElementById("c").addEventListener("click", function(event){
     event.preventDefault();
 
     var location = document.getElementById('location').value;
-    return FahToCel(location)
+    return tempToCel(location);
 
     // hightemp.innerText = Math.round(max_temp * 9 / 5) + 32;
     // lowtemp.innerText = Math.round(min_temp * 9 / 5) + 32;
