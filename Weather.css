@@ -23,8 +23,7 @@ body {
     }
 
     .celciusBtn {  
-          
-        height: 50px;          
+             
         display: grid;
         text-align: center; 
         justify-content: center;  
@@ -34,13 +33,59 @@ body {
     
     .FahBtn { 
             
-        height: 50px;  
+            display: grid;
+            text-align: center; 
+            justify-content: center;  
+            align-items: center;   
+    }
+
+    #f {  
+            padding: 10px 20px;  
+            height: 40px;          
+            display: grid;
+            text-align: center; 
+            justify-content: center;  
+            align-items: center;
+            background-color: aquamarine;
+            font-style:oblique;
+            font-weight: bold;
+               
+    } 
+
+    #c {  
+        width:20px
+        padding: 10px 20px;  
+        height: 40px;          
         display: grid;
         text-align: center; 
         justify-content: center;  
-        align-items: center;   
-    }  
+        align-items: center;
+        background-color: aqua;
+        font-style:oblique;
+        font-weight: bold;   
+           
+      }   
+    
     
 
-    footer {
-    }
+    .button {
+        background-color: #4CAF50;
+        border: 2px solid #a8af4c;
+        color: white;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 4px 2px;
+        cursor: pointer; 
+        border-radius: 50%; 
+        margin-left:1500px;      
+      }
+
+      #searchOutputData {
+          font-style: oblique;
+          font-weight:900;
+          font-weight:bolder;
+          font-size:20px
+      }
