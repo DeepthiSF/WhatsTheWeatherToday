@@ -8,6 +8,7 @@ var countryname = document.getElementById("countryName");
 var description = document.getElementById("description");
 var windspeed = document.getElementById("windspeed");
 var humidity = document.getElementById("humidity");
+var todayweather = document.getElementById("weather");
 
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
@@ -46,7 +47,7 @@ function displayOutput(resultObj) {
     // let hightemp = document.getElementById("highTemp");
     // let lowtemp = document.getElementById("lowTemp");  
 
-    locationname.innerText = resultObj.name;
+    //locationname.innerText = resultObj.name;
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
     lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
     currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
@@ -54,6 +55,7 @@ function displayOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
+    todayweather.innerText = "Today's Weather at " + resultObj.name + ":"; 
     var img = new Image(); 
     var div = document.getElementById("weathericon");
     img.src = resultObj.weather[0].icon;

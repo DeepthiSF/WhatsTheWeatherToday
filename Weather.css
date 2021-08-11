@@ -6,8 +6,16 @@ body {
     }
 
  h1 {
-    background-color: rgb(71, 120, 255);
+    background-color: rgb(230, 135, 46);
+    width: 600px;
+    color: seashell;
     }
+
+#weather {
+    color:seashell;
+    background-color: rgb(45, 104, 160);
+    width: 700px;
+}
     
     form {
         padding: 12px 20px;
