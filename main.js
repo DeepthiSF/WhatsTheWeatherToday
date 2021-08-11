@@ -14,41 +14,41 @@ var currenttemp = document.getElementById("curTemp");
 
 
 btn.addEventListener('click', function (event) {
-    event.preventDefault();
-    
-    var location = document.getElementById('location').value;
-    
-    return getWeather(location);
- });
+  event.preventDefault();
 
-
-document.getElementById("f").addEventListener("click", function(event){
-    event.preventDefault();
-
-    var location = document.getElementById('location').value;
-    return tempToFah(location);
-});
-
-document.getElementById("c").addEventListener("click", function(event){
-    event.preventDefault();
-
-    var location = document.getElementById('location').value;
-    return tempToCel(location);
-});
-
-
-document.getElementById("atlanta").addEventListener("click", function(event) {
-    event.preventDefault();
-    
-    location.href = "indexAtlanta.html";
-    
-  });
-
-  document.getElementById("dallas").addEventListener("click", function(event) {
-    event.preventDefault();
-    
-    location.href = "indexDallas.html";
-  });
-
+  var location = document.getElementById('location').value;
   
+    return getWeather(location);
+});
+
+
+document.getElementById("f").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var location = document.getElementById('location').value;
+  return tempToFah(location);
+});
+
+document.getElementById("c").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  var location = document.getElementById('location').value;
+  return tempToCel(location);
+});
+
+
+document.getElementById("atlanta").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  location.href = "indexAtlanta.html";
+
+});
+
+document.getElementById("dallas").addEventListener("click", function (event) {
+  event.preventDefault();
+
+  location.href = "indexDallas.html";
+});
+
+
 

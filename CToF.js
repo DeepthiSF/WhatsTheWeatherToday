@@ -14,8 +14,12 @@ var todayweather = document.getElementById("weather");
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
-        locationkey = "zip";
-        //console.log("this is a zipcode");
+        if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(location)){
+            locationkey = "zip";
+        } else {
+           //alert("Please enter a valid Zipcode");
+        }     
+        
     } else {
         locationkey = "q"
     }
@@ -38,8 +42,13 @@ function getWeather(location) {
                 var resultObj = data;
                 return displayOutput(resultObj);
             })
-    }
-    //return displayOutput(resultObj);
+            .catch((error) => {
+                alert("Enter a valid City name or Zipcode");
+               // location = '';
+            })
+            
+    } 
+    
 }
 
 function displayOutput(resultObj) {
