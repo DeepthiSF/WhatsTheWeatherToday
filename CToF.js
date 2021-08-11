@@ -10,6 +10,7 @@ var windspeed = document.getElementById("windspeed");
 var humidity = document.getElementById("humidity");
 var todayweather = document.getElementById("weather");
 
+
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
@@ -56,11 +57,14 @@ function displayOutput(resultObj) {
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
     todayweather.innerText = "Today's Weather at " + resultObj.name + ":"; 
-    var img = new Image(); 
-    var div = document.getElementById("weathericon");
-    img.src = resultObj.weather[0].icon;
-    div.innerHTML = img;
-    //img.src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' width=100px>"; 
+    // var img = new Image(100, 100); 
+    // var div = document.getElementById("weathericon");
+    // img.src = 'http://openweathermap.org/img/w/' + resultObj.weather[0].icon + '.png';
+    // div.appendChild(img);
+    var img = document.createElement('img');
+    var imgicon = resultObj.weather[0].icon;
+    img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
+    document.getElementById('weathericon').appendChild(img);  
     
 }
 
