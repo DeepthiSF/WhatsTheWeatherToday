@@ -21,7 +21,7 @@ function getWeather(location) {
 
     if (location != "") {
 
-        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
+        fetch('https://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
@@ -76,7 +76,7 @@ function tempToFah(location) {
 
     if (location != "") {
 
-        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&appid=' + apiKey)
+        fetch('https://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
@@ -115,7 +115,7 @@ function tempToCel(location) {
 
     if (location != "") {
 
-        fetch('http://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
+        fetch('https://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
             .then(function (response) {
                 if (response.ok) {
                     console.log(response);
