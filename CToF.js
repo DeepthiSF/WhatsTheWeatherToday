@@ -56,7 +56,7 @@ function displayOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at " + resultObj.name + ":"; 
+    todayweather.innerText = "Today's Weather at " + resultObj.name + ":";
     // var img = new Image(100, 100); 
     // var div = document.getElementById("weathericon");
     // img.src = 'http://openweathermap.org/img/w/' + resultObj.weather[0].icon + '.png';
@@ -64,8 +64,8 @@ function displayOutput(resultObj) {
     var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img);  
-    
+    document.getElementById('weathericon').appendChild(img);
+
 }
 
 function tempToFah(location) {
@@ -104,7 +104,7 @@ function tempToFah(location) {
             })
     }
 
-    
+
 }
 
 function tempToCel(location) {
@@ -143,7 +143,7 @@ function tempToCel(location) {
             })
     }
 
-    
+
 }
 
 function getAtlantaWeather() {
@@ -152,29 +152,29 @@ function getAtlantaWeather() {
     //     locationkey = "zip";
     //     //console.log("this is a zipcode");
     // } else {
-        //locationkey = "q"
+    //locationkey = "q"
     //}
 
     // if (location != "") {
 
-        fetch('https://api.openweathermap.org/data/2.5/weather?zip=30346&units=imperial&appid=' + apiKey)
-            .then(function (response) {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                }
-            })
-            .then(function (result) {
-                jsonFile = result;
-                console.log(jsonFile);
-                return jsonFile;
-            })
-            .then((data) => {
-                var resultObj = data;
-                return displayAtlantaOutput(resultObj);              
-            
-            })
-    
+    fetch('https://api.openweathermap.org/data/2.5/weather?zip=30346&units=imperial&appid=' + apiKey)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                return response.json();
+            }
+        })
+        .then(function (result) {
+            jsonFile = result;
+            console.log(jsonFile);
+            return jsonFile;
+        })
+        .then((data) => {
+            var resultObj = data;
+            return displayAtlantaOutput(resultObj);
+
+        })
+
 }
 
 function displayAtlantaOutput(resultObj) {
@@ -185,12 +185,36 @@ function displayAtlantaOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at " + resultObj.name + "'s" + " Hub" + ":"; 
+    todayweather.innerText = "Today's Weather at " + resultObj.name + "'s" + " Hub" + ":";
 
     var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img); 
+    document.getElementById('weathericon').appendChild(img);
 }
 
 
+
+function atlantaActivities() {
+    var currenttemp = document.getElementById("curTemp").innerText.slice(0, -1);
+    var currentTempNumber = parseInt(currenttemp)
+
+
+    var atlantaActivities = document.getElementById('activities')
+
+    if (currentTempNumber >= 75) {
+
+
+
+
+        var a1 = document.createElement('a')
+
+        var a1LinkText = document.createTextNode('Atlanta Zoo test ')
+        a1.appendChild(a1LinkText)
+        a1.href = 'https://zooatlanta.org/'
+
+        a1.title = "Atlanta Zoo"
+        atlantaActivities.appendChild(a1)
+    }
+
+}

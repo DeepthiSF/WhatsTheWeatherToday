@@ -16,8 +16,10 @@ window.addEventListener('load', (event) => {
 
     //var location = "sandy springs";
 
-    return getAtlantaWeather();
-
+    getAtlantaWeather();
+    
+    return 
+    
 
 });
 
