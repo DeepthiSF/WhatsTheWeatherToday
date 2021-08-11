@@ -12,15 +12,9 @@ var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
 
 window.addEventListener('load', (event) => {
-    //console.log('The page has fully loaded');
-
-    //var location = "sandy springs";
-
-    getAtlantaWeather();
     
-    return 
-    
-
+     return getAtlantaWeather();    
+        
 });
 
 

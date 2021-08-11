@@ -191,30 +191,22 @@ function displayAtlantaOutput(resultObj) {
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
     document.getElementById('weathericon').appendChild(img);
-}
 
-
-
-function atlantaActivities() {
-    var currenttemp = document.getElementById("curTemp").innerText.slice(0, -1);
-    var currentTempNumber = parseInt(currenttemp)
-
-
-    var atlantaActivities = document.getElementById('activities')
+    // Adding the activities links to the page
+    var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
+    var currentTempNumber = parseInt(currenttempNew);
+    var atlantaActivities = document.getElementById('Atlantalink1');
 
     if (currentTempNumber >= 75) {
 
-
-
-
         var a1 = document.createElement('a')
-
         var a1LinkText = document.createTextNode('Atlanta Zoo test ')
         a1.appendChild(a1LinkText)
         a1.href = 'https://zooatlanta.org/'
-
         a1.title = "Atlanta Zoo"
         atlantaActivities.appendChild(a1)
     }
 
 }
+
+
