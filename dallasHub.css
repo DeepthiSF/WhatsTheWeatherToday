@@ -1,9 +1,17 @@
+html {
+    min-height: 100%;
+ }
+
 body {
     background-color: rgba(16, 84, 104, 0.534);
     color: #0f0e0e;
     background-image: url("state-farm-Dallas.jpg");
     font-family: 'Courier New', Courier, monospace;
-    width:500px
+    width:500px;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     }
 
 .heading {
