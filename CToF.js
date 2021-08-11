@@ -200,12 +200,40 @@ function displayAtlantaOutput(resultObj) {
     if (currentTempNumber >= 75) {
 
         var a1 = document.createElement('a')
-        var a1LinkText = document.createTextNode('Atlanta Zoo test ')
+        var a1LinkText = document.createTextNode('Atlanta Zoo')
         a1.appendChild(a1LinkText)
         a1.href = 'https://zooatlanta.org/'
         a1.title = "Atlanta Zoo"
         atlantaActivities.appendChild(a1)
+        var linebreak = document.createElement('br')
+        atlantaActivities.appendChild(linebreak)
+
+        var a2 = document.createElement('a')
+        var a2LinkText = document.createTextNode('Stone Mountain Park')
+        a2.appendChild(a2LinkText)
+        a2.href = 'https://www.stonemountainpark.com/'
+        a2.title = "Stone Mountain Park"
+        atlantaActivities.appendChild(a2)
+
+
+        var a2 = document.createElement('a')
+        var a2LinkText = document.createTextNode('Stone Mountain Park')
+        a2.appendChild(a2LinkText)
+        a2.href = 'https://www.stonemountainpark.com/'
+        a2.title = "Stone Mountain Park"
+        atlantaActivities.appendChild(a2)
+
+    } else {
+        var b1 = document.createElement('a')
+        var b1LinkText = document.createTextNode('Georgia Aquarium')
+        b1.appendChild(b1LinkText)
+        b1.href = 'https://www.georgiaaquarium.org/'
+        b1.title = "Georgia Aquarium"
+        atlantaActivities.appendChild(b1)
+    
+
     }
+    
 
 }
 
