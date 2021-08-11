@@ -41,6 +41,7 @@ document.getElementById("atlanta").addEventListener("click", function(event) {
     event.preventDefault();
     
     location.href = "indexAtlanta.html";
+    
   });
 
   document.getElementById("dallas").addEventListener("click", function(event) {
@@ -49,6 +50,5 @@ document.getElementById("atlanta").addEventListener("click", function(event) {
     location.href = "indexDallas.html";
   });
 
-
-
+  
 
