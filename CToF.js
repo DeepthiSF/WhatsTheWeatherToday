@@ -44,7 +44,7 @@ function displayOutput(resultObj) {
 
     // let locationname = document.getElementById("locationName");
     // let hightemp = document.getElementById("highTemp");
-    // let lowtemp = document.getElementById("lowTemp");
+    // let lowtemp = document.getElementById("lowTemp");  
 
     locationname.innerText = resultObj.name;
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
@@ -54,6 +54,12 @@ function displayOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
+    var img = new Image(); 
+    var div = document.getElementById("weathericon");
+    img.src = resultObj.weather[0].icon;
+    div.innerHTML = img;
+    //img.src='http://openweathermap.org/img/w/" + data.weather[0].icon + ".png' width=100px>"; 
+    
 }
 
 function tempToFah(location) {
