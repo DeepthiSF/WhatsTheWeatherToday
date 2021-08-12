@@ -11,6 +11,8 @@ var hightemp = document.getElementById("highTemp");
 var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
 
+//document.getElementById("displaycontent").setAttribute("hidden");
+
 btn.addEventListener('submit', function (event) {
   event.preventDefault();
 

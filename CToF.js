@@ -11,6 +11,7 @@ var humidity = document.getElementById("humidity");
 var todayweather = document.getElementById("weather");
 
 var img = document.createElement('img');
+var displaycontent = document.getElementById("displaycontent");
 
 
 function getWeather(location) {
@@ -27,10 +28,12 @@ function getWeather(location) {
             .then(function (response) {
 
                 if (response.status === 404) {
-                    console.log(response);
+                    console.log(response);                    
                     alert("Please enter a valid City name or Zipcode");
+                    document.getElementById("displaycontent").setAttribute("hidden");
+
                 } else {
-                    console.log(response);
+                    console.log(response);                    
                     return response.json();
                 }
             })
@@ -51,6 +54,7 @@ function getWeather(location) {
 
 function displayOutput(resultObj) {
 
+    document.getElementById("displaycontent").removeAttribute("hidden");
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
     lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
     currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
