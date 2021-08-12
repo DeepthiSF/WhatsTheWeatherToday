@@ -8,11 +8,19 @@ var hightemp = document.getElementById("highTemp");
 var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
 var errorMessage = document.getElementById('errorname');
+var dataDisplayCheck = document.getElementById("searchOutputData").hasAttribute("hidden");
 
 btn.addEventListener('submit', function (event) {
   event.preventDefault();
-  var location = document.getElementById('location').value;  
-  errorMessage.innerText = '';
+  var location = document.getElementById('location').value;
+
+  if ((document.getElementById("searchOutputData").hasAttribute('hidden') === false )) {
+        document.getElementById("searchOutputData").setAttribute("hidden", true); 
+        errorMessage.innerText = '';
+      } else {
+   errorMessage.innerText = '';
+  }
+  
   return getWeather(location);
 });
 

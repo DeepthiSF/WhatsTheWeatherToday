@@ -8,6 +8,7 @@ var windspeed = document.getElementById("windspeed");
 var humidity = document.getElementById("humidity");
 var todayweather = document.getElementById("weather");
 var img = document.createElement('img');
+var dataDisplayCheck = document.getElementById("searchOutputData").hasAttribute("hidden");
 
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
@@ -25,11 +26,10 @@ function getWeather(location) {
                 if (response.status === 404) {
                     console.log(response);
                     errorMessage.innerText = ("Please enter a valid City name or Zipcode");
-                    document.getElementById("searchOutputData").setAttribute("hidden");           
+                    document.getElementById("searchOutputData").setAttribute("hidden");                             
                 } else {
-                    console.log(response);
                     return response.json();
-                }
+                }                           
             })
             .then(function (result) {
                 jsonFile = result;
@@ -59,7 +59,6 @@ function displayOutput(resultObj) {
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
     document.getElementById('weathericon').appendChild(img);
-
 }
 
 function tempToFah(location) {
