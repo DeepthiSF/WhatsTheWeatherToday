@@ -1,5 +1,3 @@
-
-//var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
 var locationname = document.getElementById("locationName");
 var hightemp = document.getElementById("highTemp");
 var lowtemp = document.getElementById("lowTemp");
@@ -9,10 +7,7 @@ var description = document.getElementById("description");
 var windspeed = document.getElementById("windspeed");
 var humidity = document.getElementById("humidity");
 var todayweather = document.getElementById("weather");
-
 var img = document.createElement('img');
-var displaycontent = document.getElementById("displaycontent");
-
 
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
@@ -28,12 +23,11 @@ function getWeather(location) {
             .then(function (response) {
 
                 if (response.status === 404) {
-                    console.log(response);                    
+                    console.log(response);                                        
                     alert("Please enter a valid City name or Zipcode");
-                    document.getElementById("displaycontent").setAttribute("hidden");
-
+                    document.getElementById("searchOutputData").setAttribute("hidden");               
                 } else {
-                    console.log(response);                    
+                    console.log(response);
                     return response.json();
                 }
             })
@@ -49,12 +43,11 @@ function getWeather(location) {
     } else {
         alert("Please enter a City name or Zipcode");
     }
-
 }
 
 function displayOutput(resultObj) {
 
-    document.getElementById("displaycontent").removeAttribute("hidden");
+    document.getElementById("searchOutputData").removeAttribute("hidden");
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
     lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
     currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
@@ -63,11 +56,6 @@ function displayOutput(resultObj) {
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
     todayweather.innerText = "Today's Weather at " + resultObj.name + ":";
-    // var img = new Image(100, 100); 
-    // var div = document.getElementById("weathericon");
-    // img.src = 'http://openweathermap.org/img/w/' + resultObj.weather[0].icon + '.png';
-    // div.appendChild(img);
-    //var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
     document.getElementById('weathericon').appendChild(img);
@@ -108,8 +96,6 @@ function tempToFah(location) {
                 currenttemp.innerText = Math.round(((current_temp - 273.15) * 1.8) + 32) + '℉';
             })
     }
-
-
 }
 
 function tempToCel(location) {
@@ -146,8 +132,6 @@ function tempToCel(location) {
                 currenttemp.innerText = Math.round((current_temp - 32) * 5 / 9) + '℃';
             })
     }
-
-
 }
 
 function getAtlantaWeather() {
@@ -170,7 +154,6 @@ function getAtlantaWeather() {
             return displayAtlantaOutput(resultObj);
 
         })
-
 }
 
 function displayAtlantaOutput(resultObj) {
@@ -248,18 +231,13 @@ function displayAtlantaOutput(resultObj) {
         var linebreak5 = document.createElement('br')
         atlantaActivities.appendChild(linebreak5)
 
-
         var b4 = document.createElement('a')
         var b4LinkText = document.createTextNode('Atlanta Hawks at State Farm Arena')
         b4.appendChild(b4LinkText)
         b4.href = 'https://www.nba.com/hawks/'
         b4.title = "Atlanta Hawks at State Farm Arena"
         atlantaActivities.appendChild(b4)
-
-
     }
-
-
 }
 
 function getDallasWeather() {
@@ -280,7 +258,6 @@ function getDallasWeather() {
         .then((data) => {
             var resultObj = data;
             return displayDallasOutput(resultObj);
-
         })
 }
 
