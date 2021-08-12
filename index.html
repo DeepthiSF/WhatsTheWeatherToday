@@ -15,9 +15,16 @@
 
 <body bgcolor="#3393FF">
         <h1>Whats The Weather Today?</h1>
+        <div class="Navagation">
+
+            <input id="atlanta" type="button" class="button" onclick="indexAtlanta.html" value="Go to Atlanta Hub" />
+            
+            <input id="dallas" type="button" class="button" onclick="indexDallas.html" value="Go to Dallas Hub" />
+        </div>
+
         <form id="Form">
             <input type="text" id="location" placeholder="Enter a City or Zip code" />
-            <input type="submit" value="Search" />
+            <input id="searchButton" type="submit" value="Search" />
         </form>
 
         <div class="celciusBtn">
@@ -26,15 +33,6 @@
         <br>
         <div class="FahBtn">
             <button id="f">Fahrenheit</button>
-        </div>
-
-        <div class="Navagation">
-
-            <input id="atlanta" type="button" class="button" onclick="indexAtlanta.html" value="Go to Atlanta Hub" />
-            <br>
-            <br>
-            <br>
-            <input id="dallas" type="button" class="button" onclick="indexDallas.html" value="Go to Dallas Hub" />
         </div>
 
         <article hidden id="searchOutputData">
