@@ -10,6 +10,8 @@ var windspeed = document.getElementById("windspeed");
 var humidity = document.getElementById("humidity");
 var todayweather = document.getElementById("weather");
 
+var img = document.createElement('img');
+
 
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
@@ -70,7 +72,7 @@ function displayOutput(resultObj) {
     // var div = document.getElementById("weathericon");
     // img.src = 'http://openweathermap.org/img/w/' + resultObj.weather[0].icon + '.png';
     // div.appendChild(img);
-    var img = document.createElement('img');
+    //var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
     document.getElementById('weathericon').appendChild(img);
