@@ -7,10 +7,12 @@ var locationname = document.getElementById("locationName");
 var hightemp = document.getElementById("highTemp");
 var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
+var errorMessage = document.getElementById('errorname');
 
 btn.addEventListener('submit', function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;  
+  errorMessage.innerText = '';
   return getWeather(location);
 });
 
