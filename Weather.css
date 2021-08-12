@@ -117,4 +117,13 @@ form {
 .box:hover {
         width: 400px;
  }
-    
+
+#errorname {
+    box-sizing: border-box;
+    background:rgba(194, 62, 62, 0.747);
+    font-size: 16px;
+    font-weight: bold;
+    color: black
+}
+
+

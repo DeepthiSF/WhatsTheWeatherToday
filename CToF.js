@@ -23,9 +23,9 @@ function getWeather(location) {
             .then(function (response) {
 
                 if (response.status === 404) {
-                    console.log(response);                                        
-                    alert("Please enter a valid City name or Zipcode");
-                    document.getElementById("searchOutputData").setAttribute("hidden");               
+                    console.log(response);
+                    errorMessage.innerText = ("Please enter a valid City name or Zipcode");
+                    document.getElementById("searchOutputData").setAttribute("hidden");           
                 } else {
                     console.log(response);
                     return response.json();
@@ -41,7 +41,7 @@ function getWeather(location) {
                 return displayOutput(resultObj);
             })
     } else {
-        alert("Please enter a City name or Zipcode");
+        errorMessage.innerText = ("Please enter a City name or Zipcode");
     }
 }
 
