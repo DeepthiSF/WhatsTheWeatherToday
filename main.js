@@ -11,9 +11,7 @@ var hightemp = document.getElementById("highTemp");
 var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
 
-
-
-btn.addEventListener('click', function (event) {
+btn.addEventListener('submit', function (event) {
   event.preventDefault();
 
   var location = document.getElementById('location').value;
