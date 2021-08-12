@@ -16,12 +16,7 @@ var img = document.createElement('img');
 function getWeather(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
-        if(/(^\d{5}$)|(^\d{5}-\d{4}$)/.test(location)){
-            locationkey = "zip";
-        } else {
-           //alert("Please enter a valid Zipcode");
-        }     
-        
+        locationkey = "zip";
     } else {
         locationkey = "q"
     }
@@ -30,7 +25,11 @@ function getWeather(location) {
 
         fetch('https://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
             .then(function (response) {
-                if (response.ok) {
+
+                if (response.status === 404) {
+                    console.log(response);
+                    alert("Please enter a valid City name or Zipcode");
+                } else {
                     console.log(response);
                     return response.json();
                 }
@@ -44,22 +43,14 @@ function getWeather(location) {
                 var resultObj = data;
                 return displayOutput(resultObj);
             })
-            .catch((error) => {
-                alert("Enter a valid City name or Zipcode");
-               // location = '';
-            })
-            
-    } 
-    
+    } else {
+        alert("Please enter a City name or Zipcode");
+    }
+
 }
 
 function displayOutput(resultObj) {
 
-    // let locationname = document.getElementById("locationName");
-    // let hightemp = document.getElementById("highTemp");
-    // let lowtemp = document.getElementById("lowTemp");  
-
-    //locationname.innerText = resultObj.name;
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
     lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
     currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
@@ -84,7 +75,6 @@ function tempToFah(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
         locationkey = "zip";
-        //console.log("this is a zipcode");
     } else {
         locationkey = "q"
     }
@@ -123,7 +113,6 @@ function tempToCel(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
         locationkey = "zip";
-        //console.log("this is a zipcode");
     } else {
         locationkey = "q"
     }
@@ -159,14 +148,6 @@ function tempToCel(location) {
 
 function getAtlantaWeather() {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
-    // if (!isNaN(location)) {
-    //     locationkey = "zip";
-    //     //console.log("this is a zipcode");
-    // } else {
-    //locationkey = "q"
-    //}
-
-    // if (location != "") {
 
     fetch('https://api.openweathermap.org/data/2.5/weather?zip=30346&units=imperial&appid=' + apiKey)
         .then(function (response) {
@@ -270,23 +251,15 @@ function displayAtlantaOutput(resultObj) {
         b4.href = 'https://www.nba.com/hawks/'
         b4.title = "Atlanta Hawks at State Farm Arena"
         atlantaActivities.appendChild(b4)
-    
+
 
     }
-    
+
 
 }
 
 function getDallasWeather() {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
-    // if (!isNaN(location)) {
-    //     locationkey = "zip";
-    //     //console.log("this is a zipcode");
-    // } else {
-    //locationkey = "q"
-    //}
-
-    // if (location != "") {
 
     fetch('https://api.openweathermap.org/data/2.5/weather?zip=75082&units=imperial&appid=' + apiKey)
         .then(function (response) {
@@ -305,7 +278,6 @@ function getDallasWeather() {
             return displayDallasOutput(resultObj);
 
         })
-
 }
 
 function displayDallasOutput(resultObj) {
