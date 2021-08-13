@@ -1,0 +1,59 @@
+html {
+    min-height: 100%;
+ }
+
+body {
+    background-color: rgba(16, 84, 104, 0.534);
+    color: #0f0e0e;
+    background-image: url("Arizona.jpg");
+    font-family: 'Courier New', Courier, monospace;
+    height: 100%;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    }
+
+    .heading {
+        background-color:green;
+        color:seashell;
+        width: 600px
+    }
+    
+    #weather {
+        background-color: rgb(201, 32, 54);
+        color:seashell;
+        width: 600px;
+    }
+
+    #weathericon {
+        width: 50px;
+        height: 50px;
+        background-color:rgba(238, 193, 141, 0.623);
+        padding: 10px 20px;        
+    }
+    
+    .box {
+        position:relative;
+        width: calc(400px - 20px);
+        height: calc(300px - 10px);
+        background:rgba(216, 199, 102, 0.925);
+        box-sizing: border-box;
+        margin: 20px;
+        transition: width 1.5s;
+        z-index: 1;
+        color:royalblue;
+    }
+    
+    #activities {
+        background-color: salmon;
+        color: seashell;
+        font-weight: 900;
+        font-size: 40px;
+        width: 700px
+    }
+
+    #phoenixlink1 {
+        background-color: bisque;
+        width: 700px;
+        font-size: 20px
+    }
