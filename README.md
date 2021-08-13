@@ -11,8 +11,8 @@ Main Page:
 - Quick links to hub pages
 
 Hub Pages:
-  - Atlanta Hub page for activities look up based on the weather
-  - Bloomington Hub page for activities look up based on the weather
-  - Dallas Hub page for activities look up based on the weather
-  - Phoenix Hub page for activities look up based on the weather
+  - Atlanta Hub page for activities based on the weather
+  - Bloomington Hub page for activities based on the weather
+  - Dallas Hub page for activities based on the weather
+  - Phoenix Hub page for activities based on the weather
  
