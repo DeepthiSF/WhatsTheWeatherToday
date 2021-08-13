@@ -5,7 +5,7 @@ html {
 body {
     background-color: rgba(16, 84, 104, 0.534);
     color: #0f0e0e;
-    background-image: url("State Farm Atlanta.jpg");
+    background-image: url("atlanta2.jpg");
     font-family: 'Courier New', Courier, monospace;
     height: 100%;
     background-position: center;
@@ -14,9 +14,8 @@ body {
     }
 
     .heading {
-        background-color:green;
-        color:seashell;
-        width: 600px
+        color: black;
+        width: 600px  
     }
     
     #weather {
@@ -37,12 +36,12 @@ body {
         position:relative;
         width: calc(400px - 20px);
         height: calc(300px - 10px);
-        background:rgba(216, 199, 102, 0.925);
+        background:rgba(182, 177, 153, 0.925);
         box-sizing: border-box;
         margin: 20px;
         transition: width 1.5s;
         z-index: 1;
-        color:royalblue;
+        color:rgb(37, 6, 148);
     }
     
     #activities {

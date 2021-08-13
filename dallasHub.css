@@ -15,13 +15,12 @@ body {
     }
 
 .heading {
-    background-color:royalblue;
-    color:seashell;
+    color: black;
     width: 600px
 }
 
 #weather {
-    background-color: royalblue;
+    background-color: rgb(235, 77, 37);
     color:seashell;
     width:600px
 }

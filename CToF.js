@@ -268,7 +268,7 @@ function displayDallasOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at the Dallas Hub";
+    todayweather.innerText = "Today's Weather at the Dallas Hub:";
 
     var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
@@ -368,7 +368,7 @@ function displayBloomOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at the" + resultObj.name + " Hub" + ":";
+    todayweather.innerText = "Today's Weather at the " + resultObj.name + " Hub" + ":";
 
     var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
