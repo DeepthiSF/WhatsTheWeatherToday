@@ -175,7 +175,7 @@ function displayAtlantaOutput(resultObj) {
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('Atlantalink1');
 
-    if (currentTempNumber >= 85) {
+    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
 
         var a1 = document.createElement('a')
         var a1LinkText = document.createTextNode('Atlanta Zoo')
@@ -280,7 +280,7 @@ function displayDallasOutput(resultObj) {
     var currentTempNumber1 = parseInt(currenttempNew1);
     var dallasActivities = document.getElementById('Dallaslink1');
 
-    if (currentTempNumber1 >= 75) {
+    if (currentTempNumber1 >= 75 && currentTempNumber1 <= 95) {
 
         var d1 = document.createElement('a')
         var d1LinkText = document.createTextNode('Texas Motor Speedway')
@@ -380,7 +380,7 @@ function displayBloomOutput(resultObj) {
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('Bloomlink1');
 
-    if (currentTempNumber >= 75) {
+    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
 
         var a1 = document.createElement('a')
         var a1LinkText = document.createTextNode('Miller Park Zoo')
@@ -479,7 +479,7 @@ function displayPhoenixOutput(resultObj) {
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('phoenixlink1');
 
-    if (currentTempNumber >= 75) {
+    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
 
         var a1 = document.createElement('a')
         var a1LinkText = document.createTextNode('Desert Botanical Garden')
