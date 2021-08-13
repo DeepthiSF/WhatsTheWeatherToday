@@ -380,7 +380,7 @@ function displayBloomOutput(resultObj) {
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('Bloomlink1');
 
-    if (currentTempNumber >= 75 && currentTempNumber1 <= 95) {
+    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
 
         var a1 = document.createElement('a')
         var a1LinkText = document.createTextNode('Miller Park Zoo')
@@ -479,7 +479,7 @@ function displayPhoenixOutput(resultObj) {
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('phoenixlink1');
 
-    if (currentTempNumber >= 75 && currentTempNumber1 <= 95) {
+    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
 
         var a1 = document.createElement('a')
         var a1LinkText = document.createTextNode('Desert Botanical Garden')
