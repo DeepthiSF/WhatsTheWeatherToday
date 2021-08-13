@@ -163,7 +163,7 @@ function displayAtlantaOutput(resultObj) {
     description.innerText = resultObj.weather[0].description;
     windspeed.innerText = resultObj.wind.speed + 'mph';
     humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at " + resultObj.name + "'s" + " Hub" + ":";
+    todayweather.innerText = "Today's Weather at " + resultObj.name + " Hub" + ":";
 
     var img = document.createElement('img');
     var imgicon = resultObj.weather[0].icon;
@@ -335,5 +335,104 @@ function displayDallasOutput(resultObj) {
         dallasActivities.appendChild(dc3)
         var dlinebreak6 = document.createElement('br');
         dallasActivities.appendChild(dlinebreak7);
+    }
+}
+
+function getBloomWeather() {
+    var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
+
+    fetch('https://api.openweathermap.org/data/2.5/weather?zip=61710&units=imperial&appid=' + apiKey)
+        .then(function (response) {
+            if (response.ok) {
+                console.log(response);
+                return response.json();
+            }
+        })
+        .then(function (result) {
+            jsonFile = result;
+            console.log(jsonFile);
+            return jsonFile;
+        })
+        .then((data) => {
+            var resultObj = data;
+            return displayBloomOutput(resultObj);
+
+        })
+}
+
+function displayBloomOutput(resultObj) {
+    hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
+    lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
+    currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
+    countryname.innerText = resultObj.sys.country;
+    description.innerText = resultObj.weather[0].description;
+    windspeed.innerText = resultObj.wind.speed + 'mph';
+    humidity.innerText = resultObj.main.humidity;
+    todayweather.innerText = "Today's Weather at " + resultObj.name + " Hub" + ":";
+
+    var img = document.createElement('img');
+    var imgicon = resultObj.weather[0].icon;
+    img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
+    document.getElementById('weathericon').appendChild(img);
+
+    // Adding the activities links to the page
+    var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
+    var currentTempNumber = parseInt(currenttempNew);
+    var atlantaActivities = document.getElementById('Bloomlink1');
+
+    if (currentTempNumber >= 75) {
+
+        var a1 = document.createElement('a')
+        var a1LinkText = document.createTextNode('Miller Park Zoo')
+        a1.appendChild(a1LinkText)
+        a1.href = 'https://www.bloomingtonparks.org/facilities/miller-park-zoo'
+        a1.title = "Miller Park Zoo"
+        atlantaActivities.appendChild(a1)
+        var linebreak1 = document.createElement('br')
+        atlantaActivities.appendChild(linebreak1)
+
+        var a2 = document.createElement('a')
+        var a2LinkText = document.createTextNode(`Grady's Family Fun Park`)
+        a2.appendChild(a2LinkText)
+        a2.href = 'https://www.gradysfunpark.com/'
+        a2.title = "Grady's Family Fun Park"
+        atlantaActivities.appendChild(a2)
+        var linebreak2 = document.createElement('br')
+        atlantaActivities.appendChild(linebreak2)
+
+        var a3 = document.createElement('a')
+        var a3LinkText = document.createTextNode('Prairie Aviation Museum')
+        a3.appendChild(a3LinkText)
+        a3.href = 'https://prairieaviationmuseum.org/'
+        a3.title = "Prairie Aviation Museum"
+        atlantaActivities.appendChild(a3)
+
+    } else {
+        var b1 = document.createElement('a')
+        var b1LinkText = document.createTextNode(`Children's Discovery Museum`)
+        b1.appendChild(b1LinkText)
+        b1.href = 'https://www.childrensdiscoverymuseum.net/'
+        b1.title = "Children's Discovery Museum"
+        atlantaActivities.appendChild(b1)
+        var linebreak3 = document.createElement('br')
+        atlantaActivities.appendChild(linebreak3)
+
+        var b2 = document.createElement('a')
+        var b2LinkText = document.createTextNode('McLean County Museum of History')
+        b2.appendChild(b2LinkText)
+        b2.href = 'https://mchistory.org/'
+        b2.title = "McLean County Museum of History"
+        atlantaActivities.appendChild(b2)
+        var linebreak4 = document.createElement('br')
+        atlantaActivities.appendChild(linebreak4)
+
+        var b3 = document.createElement('a')
+        var b3LinkText = document.createTextNode('Inside Out: Accessible Art Gallery and Cooperative')
+        b3.appendChild(b3LinkText)
+        b3.href = 'https://insideoutartcoop.org/'
+        b3.title = "Inside Out: Accessible Art Gallery and Cooperative"
+        atlantaActivities.appendChild(b3)
+        var linebreak5 = document.createElement('br')
+        atlantaActivities.appendChild(linebreak5);
     }
 }

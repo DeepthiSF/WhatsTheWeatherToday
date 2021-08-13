@@ -13,6 +13,6 @@ var currenttemp = document.getElementById("curTemp");
 
 window.addEventListener('load', (event) => {
     
-     return getDallasWeather();    
+     return getBloomWeather();    
         
 });
