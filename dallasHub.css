@@ -15,7 +15,7 @@ body {
     }
 
 .heading {
-    color: black;
+    color: seashell;
     width: 600px
 }
 
@@ -56,4 +56,11 @@ body {
     background-color:bisque;
     width: 600px;
     font-size: 20px
+}
+
+#HomeBtn {
+    background-color:rgb(252, 255, 71);
+    padding: 10px 20px;  
+    font-weight: bolder;
+    align-content: center;
 }
