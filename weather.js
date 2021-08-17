@@ -61,8 +61,7 @@ function displayOutput(resultObj) {
     document.getElementById('weathericon').appendChild(img);
 }
 
-function tempToFah(location) {
-
+function fetchWeatherData(location) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
         locationkey = "zip";
@@ -82,19 +81,71 @@ function tempToFah(location) {
             .then(function (result) {
                 jsonFile = result;
                 console.log(jsonFile);
-                return jsonFile;
-            })
-            .then((data) => {
-                var resultObj1 = data;
-                var max_temp = resultObj1.main.temp_max;
-                var min_temp = resultObj1.main.temp_max;
-                var current_temp = resultObj1.main.temp;
-
-                hightemp.innerText = Math.round(((max_temp - 273.15) * 1.8) + 32) + '℉';
-                lowtemp.innerText = Math.round(((min_temp - 273.15) * 1.8) + 32) + '℉';
-                currenttemp.innerText = Math.round(((current_temp - 273.15) * 1.8) + 32) + '℉';
-            })
+                //const resultObj = jsonFile;
+                return covertToFah(jsonFile);
+            });
+            //.then((data) => {
+             //   var resultObj1 = data;
+                // var max_temp = resultObj1.main.temp_max;
+                // var min_temp = resultObj1.main.temp_max;
+                // var current_temp = resultObj1.main.temp;
+            //});
     }
+    //return resultObj;
+}
+
+function covertToFah(resultObj1){
+    //var location = document.getElementById('location').value;
+    //const resultObj1 = fetchWeatherData(location);
+    
+    var max_temp = resultObj1.main.temp_max;
+    var min_temp = resultObj1.main.temp_max;
+    var current_temp = resultObj1.main.temp;
+    hightemp.innerText = Math.round(((max_temp - 273.15) * 1.8) + 32) + '℉';
+    lowtemp.innerText = Math.round(((min_temp - 273.15) * 1.8) + 32) + '℉';
+    currenttemp.innerText = Math.round(((current_temp - 273.15) * 1.8) + 32) + '℉';
+}
+
+
+
+function tempToFah(location) {
+
+   fetchWeatherData(location);
+    // var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
+    // if (!isNaN(location)) {
+    //     locationkey = "zip";
+    // } else {
+    //     locationkey = "q"
+    // }
+
+    // if (location != "") {
+
+    //     fetch('https://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&appid=' + apiKey)
+    //         .then(function (response) {
+    //             if (response.ok) {
+    //                 console.log(response);
+    //                 return response.json();
+    //             }
+    //         })
+    //         .then(function (result) {
+    //             jsonFile = result;
+    //             console.log(jsonFile);
+    //             return jsonFile;
+    //         })
+    //         .then((data) => {
+    //             var resultObj1 = data;
+    //             var max_temp = resultObj1.main.temp_max;
+    //             var min_temp = resultObj1.main.temp_max;
+    //             var current_temp = resultObj1.main.temp;
+    //covertToFah(location);
+    // var max_temp = resultObj1.main.temp_max;
+    // var min_temp = resultObj1.main.temp_max;
+    // var current_temp = resultObj1.main.temp;
+    //             hightemp.innerText = Math.round(((max_temp - 273.15) * 1.8) + 32) + '℉';
+    //             lowtemp.innerText = Math.round(((min_temp - 273.15) * 1.8) + 32) + '℉';
+    //             currenttemp.innerText = Math.round(((current_temp - 273.15) * 1.8) + 32) + '℉';
+            //})
+    //}
 }
 
 function tempToCel(location) {
@@ -129,7 +180,7 @@ function tempToCel(location) {
                 hightemp.innerText = Math.round((max_temp - 32) * 5 / 9) + '℃';
                 lowtemp.innerText = Math.round((min_temp - 32) * 5 / 9) + '℃';
                 currenttemp.innerText = Math.round((current_temp - 32) * 5 / 9) + '℃';
-            })
+            });
     }
 }
 
