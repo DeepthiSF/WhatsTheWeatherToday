@@ -20,13 +20,15 @@ btn.addEventListener('submit', function (event) {
 document.getElementById("f").addEventListener("click", function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;
-  return tempToFah(location);
+  //return tempToFah(location);
+  return covertToFah(location);
 });
 
 document.getElementById("c").addEventListener("click", function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;
-  return tempToCel(location);
+  //return tempToCel(location);
+  return covertToCel(location);
 });
 
 
