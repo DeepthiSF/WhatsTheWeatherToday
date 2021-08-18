@@ -15,6 +15,7 @@ btn.addEventListener('submit', function (event) {
   }
   
   return getWeather(location);
+  //return covertToFah(location);
 });
 
 document.getElementById("f").addEventListener("click", function (event) {
