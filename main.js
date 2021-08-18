@@ -15,21 +15,18 @@ btn.addEventListener('submit', function (event) {
   }
   
   return getWeather(location);
-  //return covertToFah(location);
 });
 
 document.getElementById("f").addEventListener("click", function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;
-  //return tempToFah(location);
-  return covertToFah(location);
+  return convertToFah(location);
 });
 
 document.getElementById("c").addEventListener("click", function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;
-  //return tempToCel(location);
-  return covertToCel(location);
+  return covnertToCel(location);
 });
 
 
