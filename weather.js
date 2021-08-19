@@ -10,7 +10,7 @@ var todayweather = document.getElementById("weather");
 var img = document.createElement('img');
 var dataDisplayCheck = document.getElementById("searchOutputData").hasAttribute("hidden");
 
-function getWeather(location) {
+function getWeather(location, cityLinkObj) {
     var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
     if (!isNaN(location)) {
         locationkey = "zip";
@@ -38,14 +38,14 @@ function getWeather(location) {
             })
             .then((data) => {
                 var resultObj = data;
-                return displayOutput(resultObj);
+                return displayOutput(resultObj, cityLinkObj);
             })
     } else {
         errorMessage.innerText = ("Please enter a City name or Zipcode");
     }
 }
 
-function displayOutput(resultObj) {
+function displayOutput(resultObj, cityLinkObj) {
 
     document.getElementById("searchOutputData").removeAttribute("hidden");
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
@@ -59,6 +59,10 @@ function displayOutput(resultObj) {
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
     document.getElementById('weathericon').appendChild(img);
+
+    if(cityLinkObj){
+        activities(cityLinkObj);
+    }
 }
 
 function fetchWeatherData(location) {
@@ -116,84 +120,58 @@ function convertToCel(location) {
     currenttemp.innerText = Math.round((current_temp - 32) * 5 / 9) + '℃';
 }
 
+
+
 function displayAtlantaOutput(location) {
 
-    getWeather(location);
-     
-    setTimeout(function(){
-         // Adding the activities links to the page
+    var atlantaList = [
+        {link: 'https://zooatlanta.org/', name: "Atlanta Zoo", high: 95, low: 75},
+        {link: 'https://www.stonemountainpark.com/', name: 'Stone Mountain Park', high: 95, low: 75}, 
+        {link: 'https://www.atlantamotorspeedway.com/', name: 'Atlanta Motor Speedway', high: 95, low: 75},
+        {link: 'https://www.georgiaaquarium.org/', name: 'Georgia Aquarium'},
+        {link: 'https://www.civilandhumanrights.org/', name: 'Civil and Human Rights Museum'},
+        {link: 'https://www.atlutd.com/', name: 'Atlanta United Soccer Team at Mercedes Benz Stadium'},
+        {link: 'https://www.nba.com/hawks/', name: 'Atlanta Hawks at State Farm Arena'}
+    ];  
+
+    var atlantalinkObj = {cityLink: 'Atlantalink1', cityList: atlantaList};
+    
+    getWeather(location, atlantalinkObj);
+        
+}
+
+function activities (cityLinkObj){
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
     var currentTempNumber = parseInt(currenttempNew);
-    var atlantaActivities = document.getElementById('Atlantalink1');
+    var atlantaActivities = document.getElementById(cityLinkObj.cityLink);
 
     // var curTempAtlanta = resultObj1.main.temp;
     // var atlantaActivities = document.getElementById('Atlantalink1');
-
-        if (currentTempNumber >= 75 && currentTempNumber <= 95) {
-
+    for(i=0; cityLinkObj.cityList != null && i< cityLinkObj.cityList.length; i++){
+       if((cityLinkObj.cityList[i].low && cityLinkObj.cityList[i].low >= currentTempNumber) && ((cityLinkObj.cityList[i].high && cityLinkObj.cityList[i].high <= currentTempNumber))) {
         var a1 = document.createElement('a')
-        var a1LinkText = document.createTextNode('Atlanta Zoo')
+        var a1LinkText = document.createTextNode(cityLinkObj.cityList[i].name);
         a1.appendChild(a1LinkText)
-        a1.href = 'https://zooatlanta.org/'
-        a1.title = "Atlanta Zoo"
+        a1.href = cityLinkObj.cityList[i].link;
+        a1.title = cityLinkObj.cityList[i].name;
         atlantaActivities.appendChild(a1)
         var linebreak1 = document.createElement('br')
         atlantaActivities.appendChild(linebreak1)
 
-        var a2 = document.createElement('a')
-        var a2LinkText = document.createTextNode('Stone Mountain Park')
-        a2.appendChild(a2LinkText)
-        a2.href = 'https://www.stonemountainpark.com/'
-        a2.title = "Stone Mountain Park"
-        atlantaActivities.appendChild(a2)
-        var linebreak2 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak2)
+       } else if ((cityLinkObj.cityList[i].low && cityLinkObj.cityList[i].low <= currentTempNumber) || ((cityLinkObj.cityList[i].high && cityLinkObj.cityList[i].high >= currentTempNumber))){
+        var a1 = document.createElement('a')
+        var a1LinkText = document.createTextNode(cityLinkObj.cityList[i].name);
+        a1.appendChild(a1LinkText)
+        a1.href = cityLinkObj.cityList[i].link;
+        a1.title = cityLinkObj.cityList[i].name;
+        atlantaActivities.appendChild(a1)
+        var linebreak1 = document.createElement('br')
+        atlantaActivities.appendChild(linebreak1)
+       }
+    }
+       
 
-        var a3 = document.createElement('a')
-        var a3LinkText = document.createTextNode('Atlanta Motor Speedway')
-        a3.appendChild(a3LinkText)
-        a3.href = 'https://www.atlantamotorspeedway.com/'
-        a3.title = "Atlanta Motor Speedway"
-        atlantaActivities.appendChild(a3)
-
-         } else {
-        var b1 = document.createElement('a')
-        var b1LinkText = document.createTextNode('Georgia Aquarium')
-        b1.appendChild(b1LinkText)
-        b1.href = 'https://www.georgiaaquarium.org/'
-        b1.title = "Georgia Aquarium"
-        atlantaActivities.appendChild(b1)
-        var linebreak3 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak3)
-
-        var b2 = document.createElement('a')
-        var b2LinkText = document.createTextNode('Civil and Human Rights Museum')
-        b2.appendChild(b2LinkText)
-        b2.href = 'https://www.civilandhumanrights.org/'
-        b2.title = "Civil and Human Rights Museum"
-        atlantaActivities.appendChild(b2)
-        var linebreak4 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak4)
-
-        var b3 = document.createElement('a')
-        var b3LinkText = document.createTextNode('Atlanta United Soccer Team at Mercedes Benz Stadium')
-        b3.appendChild(b3LinkText)
-        b3.href = 'https://www.atlutd.com/'
-        b3.title = "Atlanta United Soccer Team at Mercedes Benz Stadium"
-        atlantaActivities.appendChild(b3)
-        var linebreak5 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak5)
-
-        var b4 = document.createElement('a')
-        var b4LinkText = document.createTextNode('Atlanta Hawks at State Farm Arena')
-        b4.appendChild(b4LinkText)
-        b4.href = 'https://www.nba.com/hawks/'
-        b4.title = "Atlanta Hawks at State Farm Arena"
-        atlantaActivities.appendChild(b4)
-        }
-    }, 1000);
-
-   
+        
 }
 
 function displayDallasOutput(location) {
