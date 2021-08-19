@@ -118,14 +118,18 @@ function convertToCel(location) {
 
 function displayAtlantaOutput(location) {
 
-   getWeather(location);
-
-   // Adding the activities links to the page
+    getWeather(location);
+     
+    setTimeout(function(){
+         // Adding the activities links to the page
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('Atlantalink1');
 
-    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
+    // var curTempAtlanta = resultObj1.main.temp;
+    // var atlantaActivities = document.getElementById('Atlantalink1');
+
+        if (currentTempNumber >= 75 && currentTempNumber <= 95) {
 
         var a1 = document.createElement('a')
         var a1LinkText = document.createTextNode('Atlanta Zoo')
@@ -152,7 +156,7 @@ function displayAtlantaOutput(location) {
         a3.title = "Atlanta Motor Speedway"
         atlantaActivities.appendChild(a3)
 
-    } else {
+         } else {
         var b1 = document.createElement('a')
         var b1LinkText = document.createTextNode('Georgia Aquarium')
         b1.appendChild(b1LinkText)
@@ -186,7 +190,10 @@ function displayAtlantaOutput(location) {
         b4.href = 'https://www.nba.com/hawks/'
         b4.title = "Atlanta Hawks at State Farm Arena"
         atlantaActivities.appendChild(b4)
-    }
+        }
+    }, 1000);
+
+   
 }
 
 function displayDallasOutput(location) {
@@ -194,6 +201,7 @@ function displayDallasOutput(location) {
     getWeather(location);
 
     // Adding the activities links to the page
+    setTimeout(function(){
     var currenttempNew1 = document.getElementById("curTemp").innerText.slice(0, -1);
     var currentTempNumber1 = parseInt(currenttempNew1);
     var dallasActivities = document.getElementById('Dallaslink1');
@@ -254,6 +262,7 @@ function displayDallasOutput(location) {
         var dlinebreak6 = document.createElement('br');
         dallasActivities.appendChild(dlinebreak7);
     }
+  }, 1000);
 }
 
 function displayBloomOutput(location) {
@@ -261,6 +270,7 @@ function displayBloomOutput(location) {
     getWeather(location);
 
     // Adding the activities links to the page
+    setTimeout(function(){
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('Bloomlink1');
@@ -320,6 +330,7 @@ function displayBloomOutput(location) {
         var linebreak5 = document.createElement('br')
         atlantaActivities.appendChild(linebreak5);
     }
+ }, 1000);
 }
 
 function displayPhoenixOutput(location) {
@@ -327,6 +338,7 @@ function displayPhoenixOutput(location) {
     getWeather(location);
 
     // Adding the activities links to the page
+    setTimeout(function(){
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('phoenixlink1');
@@ -386,4 +398,5 @@ function displayPhoenixOutput(location) {
         var linebreak5 = document.createElement('br')
         atlantaActivities.appendChild(linebreak5)
     }
+ }, 1000);
 }
