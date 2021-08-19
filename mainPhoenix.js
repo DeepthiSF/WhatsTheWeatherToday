@@ -13,6 +13,8 @@ var currenttemp = document.getElementById("curTemp");
 
 window.addEventListener('load', (event) => {
     
-     return getPhoenixWeather();    
-        
+     var location = "85281";
+      
+     return displayPhoenixOutput(location);    
+       
 });

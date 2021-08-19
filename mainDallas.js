@@ -13,6 +13,8 @@ var currenttemp = document.getElementById("curTemp");
 
 window.addEventListener('load', (event) => {
     
-     return getDallasWeather();    
+     var location = "75243";
+     
+     return displayDallasOutput(location);   
         
 });

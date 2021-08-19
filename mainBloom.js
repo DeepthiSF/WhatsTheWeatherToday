@@ -13,6 +13,8 @@ var currenttemp = document.getElementById("curTemp");
 
 window.addEventListener('load', (event) => {
     
-     return getBloomWeather();    
+     var location = "61710";
+     
+     return displayBloomOutput(location); 
         
 });

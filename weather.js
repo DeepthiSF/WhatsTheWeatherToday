@@ -76,12 +76,15 @@ function fetchWeatherData(location) {
                 if (response.ok) {
                     console.log(response);
                     return response.json();
-                }
+                } 
             })
             .then(function (result) {
-                jsonFile = result;
-                console.log(jsonFile);
-                return jsonFile;
+                //jsonFile = result;
+                console.log(result);
+                return result;
+            })
+            .catch(function (error) {
+                console.log(error);
             });
     }
     return jsonFile;
@@ -113,44 +116,11 @@ function convertToCel(location) {
     currenttemp.innerText = Math.round((current_temp - 32) * 5 / 9) + '℃';
 }
 
-function getAtlantaWeather() {
-    var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
+function displayAtlantaOutput(location) {
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?zip=30346&units=imperial&appid=' + apiKey)
-        .then(function (response) {
-            if (response.ok) {
-                console.log(response);
-                return response.json();
-            }
-        })
-        .then(function (result) {
-            jsonFile = result;
-            console.log(jsonFile);
-            return jsonFile;
-        })
-        .then((data) => {
-            var resultObj = data;
-            return displayAtlantaOutput(resultObj);
+   getWeather(location);
 
-        })
-}
-
-function displayAtlantaOutput(resultObj) {
-    hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
-    lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
-    currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
-    countryname.innerText = resultObj.sys.country;
-    description.innerText = resultObj.weather[0].description;
-    windspeed.innerText = resultObj.wind.speed + 'mph';
-    humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at the " + resultObj.name + " Hub" + ":";
-
-    var img = document.createElement('img');
-    var imgicon = resultObj.weather[0].icon;
-    img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img);
-
-    // Adding the activities links to the page
+   // Adding the activities links to the page
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
     var currentTempNumber = parseInt(currenttempNew);
     var atlantaActivities = document.getElementById('Atlantalink1');
@@ -219,41 +189,9 @@ function displayAtlantaOutput(resultObj) {
     }
 }
 
-function getDallasWeather() {
-    var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
+function displayDallasOutput(location) {
 
-    fetch('https://api.openweathermap.org/data/2.5/weather?zip=75082&units=imperial&appid=' + apiKey)
-        .then(function (response) {
-            if (response.ok) {
-                console.log(response);
-                return response.json();
-            }
-        })
-        .then(function (result) {
-            jsonFile = result;
-            console.log(jsonFile);
-            return jsonFile;
-        })
-        .then((data) => {
-            var resultObj = data;
-            return displayDallasOutput(resultObj);
-        })
-}
-
-function displayDallasOutput(resultObj) {
-    hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
-    lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
-    currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
-    countryname.innerText = resultObj.sys.country;
-    description.innerText = resultObj.weather[0].description;
-    windspeed.innerText = resultObj.wind.speed + 'mph';
-    humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at the Dallas Hub:";
-
-    var img = document.createElement('img');
-    var imgicon = resultObj.weather[0].icon;
-    img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img);
+    getWeather(location);
 
     // Adding the activities links to the page
     var currenttempNew1 = document.getElementById("curTemp").innerText.slice(0, -1);
@@ -318,42 +256,9 @@ function displayDallasOutput(resultObj) {
     }
 }
 
-function getBloomWeather() {
-    var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
-
-    fetch('https://api.openweathermap.org/data/2.5/weather?zip=61710&units=imperial&appid=' + apiKey)
-        .then(function (response) {
-            if (response.ok) {
-                console.log(response);
-                return response.json();
-            }
-        })
-        .then(function (result) {
-            jsonFile = result;
-            console.log(jsonFile);
-            return jsonFile;
-        })
-        .then((data) => {
-            var resultObj = data;
-            return displayBloomOutput(resultObj);
-
-        })
-}
-
-function displayBloomOutput(resultObj) {
-    hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
-    lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
-    currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
-    countryname.innerText = resultObj.sys.country;
-    description.innerText = resultObj.weather[0].description;
-    windspeed.innerText = resultObj.wind.speed + 'mph';
-    humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at the " + resultObj.name + " Hub" + ":";
-
-    var img = document.createElement('img');
-    var imgicon = resultObj.weather[0].icon;
-    img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img);
+function displayBloomOutput(location) {
+    
+    getWeather(location);
 
     // Adding the activities links to the page
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
@@ -417,42 +322,9 @@ function displayBloomOutput(resultObj) {
     }
 }
 
-function getPhoenixWeather() {
-    var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
-
-    fetch('https://api.openweathermap.org/data/2.5/weather?zip=85281&units=imperial&appid=' + apiKey)
-        .then(function (response) {
-            if (response.ok) {
-                console.log(response);
-                return response.json();
-            }
-        })
-        .then(function (result) {
-            jsonFile = result;
-            console.log(jsonFile);
-            return jsonFile;
-        })
-        .then((data) => {
-            var resultObj = data;
-            return displayPhoenixOutput(resultObj);
-
-        })
-}
-
-function displayPhoenixOutput(resultObj) {
-    hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
-    lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
-    currenttemp.innerText = Math.round(resultObj.main.temp) + '℉';
-    countryname.innerText = resultObj.sys.country;
-    description.innerText = resultObj.weather[0].description;
-    windspeed.innerText = resultObj.wind.speed + 'mph';
-    humidity.innerText = resultObj.main.humidity;
-    todayweather.innerText = "Today's Weather at the Phoenix Hub" + ":";
-
-    var img = document.createElement('img');
-    var imgicon = resultObj.weather[0].icon;
-    img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img);
+function displayPhoenixOutput(location) {
+    
+    getWeather(location);
 
     // Adding the activities links to the page
     var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);

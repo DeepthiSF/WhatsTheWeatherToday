@@ -12,9 +12,9 @@ var lowtemp = document.getElementById("lowTemp");
 var currenttemp = document.getElementById("curTemp");
 
 window.addEventListener('load', (event) => {
-    
-     return getAtlantaWeather();    
+     var location = "30346";
         
+     return displayAtlantaOutput(location);
 });
 
 
