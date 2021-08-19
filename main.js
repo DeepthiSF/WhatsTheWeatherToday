@@ -26,7 +26,7 @@ document.getElementById("f").addEventListener("click", function (event) {
 document.getElementById("c").addEventListener("click", function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;
-  return covnertToCel(location);
+  return convertToCel(location);
 });
 
 
