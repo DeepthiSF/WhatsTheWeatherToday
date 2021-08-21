@@ -61,7 +61,7 @@ function displayOutput(resultObj, cityLinkObj) {
     document.getElementById('weathericon').appendChild(img);
 
     if(cityLinkObj){
-        activities(cityLinkObj);
+        displayActivities(cityLinkObj);
     }
 }
 
@@ -120,7 +120,37 @@ function convertToCel(location) {
     currenttemp.innerText = Math.round((current_temp - 32) * 5 / 9) + '℃';
 }
 
+function displayActivities (cityLinkObj){
+    var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
+    var currentTempNumber = parseInt(currenttempNew);
+    var activities = document.getElementById(cityLinkObj.cityLink);
+    
+    for(i=0; cityLinkObj.cityList != null && i< cityLinkObj.cityList.length; i++){
+    
+        if((cityLinkObj.cityList[i].low != undefined) && (currentTempNumber >= cityLinkObj.cityList[i].low && currentTempNumber <= cityLinkObj.cityList[i].high)) {
+        var a1 = document.createElement('a')
+        var a1LinkText = document.createTextNode(cityLinkObj.cityList[i].name);
+        a1.appendChild(a1LinkText)
+        a1.href = cityLinkObj.cityList[i].link;
+        a1.title = cityLinkObj.cityList[i].name;
+        activities.appendChild(a1)
+        var linebreak1 = document.createElement('br')
+        activities.appendChild(linebreak1)
 
+       } 
+       else if ((cityLinkObj.cityList[i].low == undefined) && (currentTempNumber < 75 || currentTempNumber > 95))       
+        {
+                var a1 = document.createElement('a')
+                var a1LinkText = document.createTextNode(cityLinkObj.cityList[i].name);
+                a1.appendChild(a1LinkText)
+                a1.href = cityLinkObj.cityList[i].link;
+                a1.title = cityLinkObj.cityList[i].name;
+                activities.appendChild(a1)
+                var linebreak1 = document.createElement('br')
+                activities.appendChild(linebreak1)
+        }     
+   }        
+}
 
 function displayAtlantaOutput(location) {
 
@@ -140,241 +170,50 @@ function displayAtlantaOutput(location) {
         
 }
 
-function activities (cityLinkObj){
-    var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
-    var currentTempNumber = parseInt(currenttempNew);
-    var atlantaActivities = document.getElementById(cityLinkObj.cityLink);
-
-    // var curTempAtlanta = resultObj1.main.temp;
-    // var atlantaActivities = document.getElementById('Atlantalink1');
-    for(i=0; cityLinkObj.cityList != null && i< cityLinkObj.cityList.length; i++){
-       if((cityLinkObj.cityList[i].low && cityLinkObj.cityList[i].low >= currentTempNumber) && ((cityLinkObj.cityList[i].high && cityLinkObj.cityList[i].high <= currentTempNumber))) {
-        var a1 = document.createElement('a')
-        var a1LinkText = document.createTextNode(cityLinkObj.cityList[i].name);
-        a1.appendChild(a1LinkText)
-        a1.href = cityLinkObj.cityList[i].link;
-        a1.title = cityLinkObj.cityList[i].name;
-        atlantaActivities.appendChild(a1)
-        var linebreak1 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak1)
-
-       } else if ((cityLinkObj.cityList[i].low && cityLinkObj.cityList[i].low <= currentTempNumber) || ((cityLinkObj.cityList[i].high && cityLinkObj.cityList[i].high >= currentTempNumber))){
-        var a1 = document.createElement('a')
-        var a1LinkText = document.createTextNode(cityLinkObj.cityList[i].name);
-        a1.appendChild(a1LinkText)
-        a1.href = cityLinkObj.cityList[i].link;
-        a1.title = cityLinkObj.cityList[i].name;
-        atlantaActivities.appendChild(a1)
-        var linebreak1 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak1)
-       }
-    }
-       
-
-        
-}
-
 function displayDallasOutput(location) {
 
-    getWeather(location);
+    var dallasList = [
+        {link: 'https://www.texasmotorspeedway.com/', name: "Texas Motor Speedway", high: 95, low: 75},
+        {link: 'https://www.fortworthstockyards.org/', name: "Stockyards Championship Rodeo", high: 95, low: 75}, 
+        {link: 'https://www.dallasarboretum.org/', name: 'Dallas Arboretum Botanical Garden', high: 95, low: 75},
+        {link: 'https://dwazoo.com/', name: "The Dallas World Aquarium"},
+        {link: 'https://www.legolanddiscoverycenter.com/dallas-fw/', name: 'Legoland Discovery Center'},
+        {link: 'https://www.perotmuseum.org/', name: 'Perot Museum of Nature & Science'}
+    ];  
 
-    // Adding the activities links to the page
-    setTimeout(function(){
-    var currenttempNew1 = document.getElementById("curTemp").innerText.slice(0, -1);
-    var currentTempNumber1 = parseInt(currenttempNew1);
-    var dallasActivities = document.getElementById('Dallaslink1');
-
-    if (currentTempNumber1 >= 75 && currentTempNumber1 <= 95) {
-
-        var d1 = document.createElement('a')
-        var d1LinkText = document.createTextNode('Texas Motor Speedway')
-        d1.appendChild(d1LinkText)
-        d1.href = 'https://www.texasmotorspeedway.com/'
-        d1.title = "Texas Motor Speedway"
-        dallasActivities.appendChild(d1)
-        var dlinebreak1 = document.createElement('br');
-        dallasActivities.appendChild(dlinebreak1);
-
-        var d2 = document.createElement('a')
-        var d2LinkText = document.createTextNode('Stockyards Championship Rodeo')
-        d2.appendChild(d2LinkText)
-        d2.href = 'https://www.fortworthstockyards.org/'
-        d2.title = "Stockyards Championship Rodeo"
-        dallasActivities.appendChild(d2)
-        var dlinebreak2 = document.createElement('br');
-        dallasActivities.appendChild(dlinebreak2);
-
-        var d3 = document.createElement('a')
-        var d3LinkText = document.createTextNode('Dallas Arboretum Botanical Garden')
-        d3.appendChild(d3LinkText)
-        d3.href = 'https://www.dallasarboretum.org/'
-        d3.title = "Dallas Arboretum Botanical Garden"
-        dallasActivities.appendChild(d3)
-        var dlinebreak3 = document.createElement('br');
-        dallasActivities.appendChild(dlinebreak3);
-    } else {
-        var dc1 = document.createElement('a')
-        var dc1LinkText = document.createTextNode('The Dallas World Aquarium')
-        dc1.appendChild(dc1LinkText)
-        dc1.href = ' https://dwazoo.com/'
-        dc1.title = "The Dallas World Aquarium"
-        dallasActivities.appendChild(dc1)
-        var dlinebreak4 = document.createElement('br');
-        dallasActivities.appendChild(dlinebreak4);
-
-        var dc2 = document.createElement('a')
-        var dc2LinkText = document.createTextNode('The Dallas Cowboys Football')
-        dc2.appendChild(dc2LinkText)
-        dc2.href = 'https://www.dallascowboys.com/'
-        dc2.title = "The Dallas Cowboys Football"
-        dallasActivities.appendChild(dc2)
-        var dlinebreak5 = document.createElement('br');
-        dallasActivities.appendChild(dlinebreak5);
-
-        var dc3 = document.createElement('a')
-        var dc3LinkText = document.createTextNode('Perot Museum of Nature & Science')
-        dc3.appendChild(dc3LinkText)
-        dc3.href = ' https://www.perotmuseum.org/'
-        dc3.title = "Perot Museum of Nature & Science"
-        dallasActivities.appendChild(dc3)
-        var dlinebreak6 = document.createElement('br');
-        dallasActivities.appendChild(dlinebreak7);
-    }
-  }, 1000);
+    var dallaslinkObj = {cityLink: 'Dallaslink1', cityList: dallasList};
+    
+    getWeather(location, dallaslinkObj);
 }
 
 function displayBloomOutput(location) {
     
-    getWeather(location);
+    var bloomList = [
+        {link: 'https://www.bloomingtonparks.org/facilities/miller-park-zoo', name: "Miller Park Zoo", high: 95, low: 75},
+        {link: 'https://www.gradysfunpark.com/', name: "Grady's Family Fun Park", high: 95, low: 75}, 
+        {link: 'https://prairieaviationmuseum.org/', name: 'Prairie Aviation Museum', high: 95, low: 75},
+        {link: 'https://www.childrensdiscoverymuseum.net/', name: "Children's Discovery Museum"},
+        {link: 'https://mchistory.org/', name: 'McLean County Museum of History'},
+        {link: 'https://insideoutartcoop.org/', name: 'Inside Out: Accessible Art Gallery and Cooperative'}
+    ];  
 
-    // Adding the activities links to the page
-    setTimeout(function(){
-    var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
-    var currentTempNumber = parseInt(currenttempNew);
-    var atlantaActivities = document.getElementById('Bloomlink1');
-
-    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
-
-        var a1 = document.createElement('a')
-        var a1LinkText = document.createTextNode('Miller Park Zoo')
-        a1.appendChild(a1LinkText)
-        a1.href = 'https://www.bloomingtonparks.org/facilities/miller-park-zoo'
-        a1.title = "Miller Park Zoo"
-        atlantaActivities.appendChild(a1)
-        var linebreak1 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak1)
-
-        var a2 = document.createElement('a')
-        var a2LinkText = document.createTextNode(`Grady's Family Fun Park`)
-        a2.appendChild(a2LinkText)
-        a2.href = 'https://www.gradysfunpark.com/'
-        a2.title = "Grady's Family Fun Park"
-        atlantaActivities.appendChild(a2)
-        var linebreak2 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak2)
-
-        var a3 = document.createElement('a')
-        var a3LinkText = document.createTextNode('Prairie Aviation Museum')
-        a3.appendChild(a3LinkText)
-        a3.href = 'https://prairieaviationmuseum.org/'
-        a3.title = "Prairie Aviation Museum"
-        atlantaActivities.appendChild(a3)
-
-    } else {
-        var b1 = document.createElement('a')
-        var b1LinkText = document.createTextNode(`Children's Discovery Museum`)
-        b1.appendChild(b1LinkText)
-        b1.href = 'https://www.childrensdiscoverymuseum.net/'
-        b1.title = "Children's Discovery Museum"
-        atlantaActivities.appendChild(b1)
-        var linebreak3 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak3)
-
-        var b2 = document.createElement('a')
-        var b2LinkText = document.createTextNode('McLean County Museum of History')
-        b2.appendChild(b2LinkText)
-        b2.href = 'https://mchistory.org/'
-        b2.title = "McLean County Museum of History"
-        atlantaActivities.appendChild(b2)
-        var linebreak4 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak4)
-
-        var b3 = document.createElement('a')
-        var b3LinkText = document.createTextNode('Inside Out: Accessible Art Gallery and Cooperative')
-        b3.appendChild(b3LinkText)
-        b3.href = 'https://insideoutartcoop.org/'
-        b3.title = "Inside Out: Accessible Art Gallery and Cooperative"
-        atlantaActivities.appendChild(b3)
-        var linebreak5 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak5);
-    }
- }, 1000);
+    var bloomlinkObj = {cityLink: 'Bloomlink1', cityList: bloomList};
+    
+    getWeather(location, bloomlinkObj);
 }
 
 function displayPhoenixOutput(location) {
+
+    var phoenixList = [
+        {link: 'https://dbg.org/', name: "Desert Botanical Garden", high: 95, low: 75},
+        {link: 'https://www.phoenixzoo.org/', name: "Phoenix Zoo", high: 95, low: 75}, 
+        {link: 'https://www.phoenix.gov/parks/trails/locations/papago-park', name: 'Papago Park', high: 95, low: 75},
+        {link: 'https://www.odyseaaquarium.com/', name: "OdySea Aquarium"},
+        {link: 'https://mim.org/', name: 'Musical Instrument Museum'},
+        {link: 'https://heard.org/', name: 'Heard Museum'}
+    ];  
+
+    var phoenixlinkObj = {cityLink: 'phoenixlink1', cityList: phoenixList};
     
-    getWeather(location);
-
-    // Adding the activities links to the page
-    setTimeout(function(){
-    var currenttempNew = document.getElementById("curTemp").innerText.slice(0, -1);
-    var currentTempNumber = parseInt(currenttempNew);
-    var atlantaActivities = document.getElementById('phoenixlink1');
-
-    if (currentTempNumber >= 75 && currentTempNumber <= 95) {
-
-        var a1 = document.createElement('a')
-        var a1LinkText = document.createTextNode('Desert Botanical Garden')
-        a1.appendChild(a1LinkText)
-        a1.href = 'https://dbg.org/'
-        a1.title = "Desert Botanical Garden"
-        atlantaActivities.appendChild(a1)
-        var linebreak1 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak1)
-
-        var a2 = document.createElement('a')
-        var a2LinkText = document.createTextNode(`Phoenix Zoo`)
-        a2.appendChild(a2LinkText)
-        a2.href = 'https://www.phoenixzoo.org/'
-        a2.title = "Phoenix Zoo"
-        atlantaActivities.appendChild(a2)
-        var linebreak2 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak2)
-
-        var a3 = document.createElement('a')
-        var a3LinkText = document.createTextNode('Papago Park')
-        a3.appendChild(a3LinkText)
-        a3.href = 'https://www.phoenix.gov/parks/trails/locations/papago-park'
-        a3.title = "Papago Park"
-        atlantaActivities.appendChild(a3)
-
-    } else {
-        var b1 = document.createElement('a')
-        var b1LinkText = document.createTextNode(`OdySea Aquarium`)
-        b1.appendChild(b1LinkText)
-        b1.href = 'https://www.odyseaaquarium.com/'
-        b1.title = "OdySea Aquarium"
-        atlantaActivities.appendChild(b1)
-        var linebreak3 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak3)
-
-        var b2 = document.createElement('a')
-        var b2LinkText = document.createTextNode('Musical Instrument Museum')
-        b2.appendChild(b2LinkText)
-        b2.href = 'https://mim.org/?utm_source=Google&utm_medium=Google%20My%20Business'
-        b2.title = "Musical Instrument Museum"
-        atlantaActivities.appendChild(b2)
-        var linebreak4 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak4);
-
-        var b3 = document.createElement('a')
-        var b3LinkText = document.createTextNode('Heard Museum')
-        b3.appendChild(b3LinkText)
-        b3.href = 'https://heard.org/'
-        b3.title = "Heard Museum"
-        atlantaActivities.appendChild(b3)
-        var linebreak5 = document.createElement('br')
-        atlantaActivities.appendChild(linebreak5)
-    }
- }, 1000);
+    getWeather(location, phoenixlinkObj);    
 }
