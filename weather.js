@@ -27,6 +27,8 @@ function getWeather(location, cityLinkObj) {
                     console.log(response);
                     errorMessage.innerText = ("Please enter a valid City name or Zipcode");
                     document.getElementById("searchOutputData").setAttribute("hidden");
+                    document.getElementById("c").style.display = "none";
+                    document.getElementById("f").style.display = "none";
                 } else {
                     return response.json();
                 }
@@ -46,7 +48,7 @@ function getWeather(location, cityLinkObj) {
 }
 
 function displayOutput(resultObj, cityLinkObj) {
-
+    
     document.getElementById("searchOutputData").removeAttribute("hidden");
     hightemp.innerText = Math.round(resultObj.main.temp_max) + '℉';
     lowtemp.innerText = Math.round(resultObj.main.temp_min) + '℉';
@@ -58,11 +60,14 @@ function displayOutput(resultObj, cityLinkObj) {
     todayweather.innerText = "Today's Weather at " + resultObj.name + ":";
     var imgicon = resultObj.weather[0].icon;
     img.src = 'http://openweathermap.org/img/w/' + imgicon + '.png';
-    document.getElementById('weathericon').appendChild(img);
+    document.getElementById('weathericon').appendChild(img);    
 
     if(cityLinkObj){
         displayActivities(cityLinkObj);
     }
+
+    document.getElementById("c").style.display = "block";
+    document.getElementById("f").style.display = "block";
 }
 
 function fetchWeatherData(location) {

@@ -8,7 +8,9 @@ btn.addEventListener('submit', function (event) {
   var location = document.getElementById('location').value;
 
   if ((document.getElementById("searchOutputData").hasAttribute('hidden') === false )) {
-        document.getElementById("searchOutputData").setAttribute("hidden", true); 
+        document.getElementById("searchOutputData").setAttribute("hidden", true);
+        document.getElementById("c").style.display = "none";
+        document.getElementById("f").style.display = "none";
         errorMessage.innerText = '';
       } else {
    errorMessage.innerText = '';
@@ -26,7 +28,7 @@ document.getElementById("f").addEventListener("click", function (event) {
 document.getElementById("c").addEventListener("click", function (event) {
   event.preventDefault();
   var location = document.getElementById('location').value;
-  return convertToCel(location);
+  return convertToCel(location); 
 });
 
 
