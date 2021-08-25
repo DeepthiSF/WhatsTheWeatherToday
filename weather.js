@@ -151,32 +151,3 @@ function displayActivities (cityLinkObj){
         }     
    }        
 }
-
-function displayAtlantaOutput(location, atlantaList) {
-
-    var atlantalinkObj = {cityLink: 'Atlantalink1', cityList: atlantaList};
-    
-    getWeather(location, atlantalinkObj);
-        
-}
-
-function displayDallasOutput(location, dallasList) {    
-
-    var dallaslinkObj = {cityLink: 'Dallaslink1', cityList: dallasList};
-    
-    getWeather(location, dallaslinkObj);
-}
-
-function displayBloomOutput(location, bloomList) {  
-    
-    var bloomlinkObj = {cityLink: 'Bloomlink1', cityList: bloomList};
-    
-    getWeather(location, bloomlinkObj);
-}
-
-function displayPhoenixOutput(location, phoenixList) {    
-
-    var phoenixlinkObj = {cityLink: 'phoenixlink1', cityList: phoenixList};
-    
-    getWeather(location, phoenixlinkObj);    
-}

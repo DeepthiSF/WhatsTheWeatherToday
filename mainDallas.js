@@ -11,6 +11,7 @@ window.addEventListener('load', (event) => {
           {link: 'https://www.perotmuseum.org/', name: 'Perot Museum of Nature & Science'}
       ];  
 
-     return displayDallasOutput(location, dallasList);   
-        
+      var dallaslinkObj = {cityLink: 'Dallaslink1', cityList: dallasList};
+    
+     return getWeather(location, dallaslinkObj);
 });

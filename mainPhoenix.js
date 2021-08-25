@@ -9,8 +9,9 @@ window.addEventListener('load', (event) => {
           {link: 'https://www.odyseaaquarium.com/', name: "OdySea Aquarium"},
           {link: 'https://mim.org/', name: 'Musical Instrument Museum'},
           {link: 'https://heard.org/', name: 'Heard Museum'}
-      ];  
+      ]; 
       
-     return displayPhoenixOutput(location, phoenixList);    
-       
+      var phoenixlinkObj = {cityLink: 'phoenixlink1', cityList: phoenixList};
+    
+      return getWeather(location, phoenixlinkObj);      
 });

@@ -11,6 +11,7 @@ window.addEventListener('load', (event) => {
           {link: 'https://insideoutartcoop.org/', name: 'Inside Out: Accessible Art Gallery and Cooperative'}
       ];  
 
-     return displayBloomOutput(location, bloomList); 
-        
+      var bloomlinkObj = {cityLink: 'Bloomlink1', cityList: bloomList};
+    
+      return getWeather(location, bloomlinkObj); 
 });
