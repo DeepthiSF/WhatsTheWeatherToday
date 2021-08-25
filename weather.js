@@ -70,38 +70,9 @@ function displayOutput(resultObj, cityLinkObj) {
     document.getElementById("f").style.display = "block";
 }
 
-function fetchWeatherData(location) {
-    var apiKey = "6e06812aeffe12f5ac01e38127f2c4fe";
-    if (!isNaN(location)) {
-        locationkey = "zip";
-    } else {
-        locationkey = "q"
-    }
+function convertToFah() {
 
-    if (location != "") {
-
-        fetch('https://api.openweathermap.org/data/2.5/weather?' + locationkey + '=' + location + '&units=imperial&appid=' + apiKey)
-            .then(function (response) {
-                if (response.ok) {
-                    console.log(response);
-                    return response.json();
-                } 
-            })
-            .then(function (result) {
-                //jsonFile = result;
-                console.log(result);
-                return result;
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-    }
-    return jsonFile;
-}
-
-function convertToFah(location) {
-
-    const resultObj1 = fetchWeatherData(location);
+    const resultObj1 = jsonFile;
 
     var max_temp = resultObj1.main.temp_max;
     var min_temp = resultObj1.main.temp_max;
@@ -112,9 +83,9 @@ function convertToFah(location) {
     currenttemp.innerText = Math.round(current_temp) + '℉';
 }
 
-function convertToCel(location) {
+function convertToCel() {
     
-    const resultObj1 = fetchWeatherData(location);
+    const resultObj1 = jsonFile;
     
     var max_temp = resultObj1.main.temp_max;
     var min_temp = resultObj1.main.temp_max;

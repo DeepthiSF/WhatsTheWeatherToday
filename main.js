@@ -21,14 +21,12 @@ btn.addEventListener('submit', function (event) {
 
 document.getElementById("f").addEventListener("click", function (event) {
   event.preventDefault();
-  var location = document.getElementById('location').value;
-  return convertToFah(location);
+  return convertToFah();
 });
 
 document.getElementById("c").addEventListener("click", function (event) {
   event.preventDefault();
-  var location = document.getElementById('location').value;
-  return convertToCel(location); 
+  return convertToCel(); 
 });
 
 
